@@ -1,0 +1,10 @@
+The orange county student government is holding an election. Four comunity colleges will participate in the election:
+1) Santiago Canyon Colleger
+2) Santa Ana College
+3) Orange Coast College
+4) Coastline Community College
+
+Our software team, The Overscores, has been tasked with building software to display election results.
+
+Specifications are still fluid and will likely change in the future. Please ensure the documentation you're using is up to date while writing software.
+

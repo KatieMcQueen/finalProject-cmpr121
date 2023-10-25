@@ -31,7 +31,7 @@ PersonType:
 
     + PersonType(firstName : string, lastName : string, socialSecurityNumber : int) : PersonType - initializes a person with the given values
 
-    + setPerfonInfo(firstName : string, lastName : string, SSN : int) : void - re-sets the provided values
+    + setPerfonInfo(firstName : string, lastName : string, socialSecurityNumber: int) : void - re-sets the provided values
     (perfon is likely a typo, use the (likely) incorrect name from the specification unless and until it's fixed)
     (the specification doesn't explicitly call for a return type. I've assumed void, but bool is a possible alternative)
 

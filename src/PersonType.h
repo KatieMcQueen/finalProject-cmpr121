@@ -3,18 +3,18 @@
 class PersonType
 {
   private:
-    string fName;
-    string lName;
+    std::string fName;
+    std::string lName;
     int SSN;
   public:
     PersonType();
-    PersonType(string firstName, string lastName, int SSN);
-    void setPerfonInfo(string fName, string lName, int SSN);
-    string getFirstName();
-    string getLastName();
+    PersonType(std::string firstName, std::string lastName, int SSN);
+    void setPerfonInfo(std::string fName, std::string lName, int SSN);
+    std::string getFirstName();
+    std::string getLastName();
     int getSSN();
     void printName();
     void printPersonInfo();
     void printSSN();
-    ~personType();
+    ~PersonType();
 };

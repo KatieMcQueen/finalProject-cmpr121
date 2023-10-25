@@ -29,7 +29,7 @@ PersonType:
   member functions:
     + PersonType() : PersonType - default constructor. Sets SSN to 0.
 
-    + PersonType(firstName : string, lastName : string, SSN : int) : PersonType - initializes a person with the given values
+    + PersonType(firstName : string, lastName : string, socialSecurityNumber : int) : PersonType - initializes a person with the given values
 
     + setPerfonInfo(firstName : string, lastName : string, SSN : int) : void - re-sets the provided values
     (perfon is likely a typo, use the (likely) incorrect name from the specification unless and until it's fixed)

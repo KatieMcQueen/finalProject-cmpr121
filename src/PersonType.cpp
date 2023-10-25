@@ -4,9 +4,13 @@ PersonType::PersonType()
 {
   SSN = 0;
 }
-PersonType::PersonType(std::string firstName, std::string lastName, int SSN)
+PersonType::PersonType(std::string firstName, std::string lastName, int socialSecurityNumber)
 {
+  lName = firstName;
+  fName = lastName;
+  SSN = socialSecurityNumber;
 }
+
 void PersonType::setPerfonInfo(std::string fName, std::string lName, int SSN)
 {
 }

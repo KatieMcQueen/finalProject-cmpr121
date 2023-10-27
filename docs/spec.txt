@@ -56,6 +56,14 @@ PersonType:
 
     + ~PersonType() - destructor. Left empty
 
+Specification extension:
+(helper functions not needed by the client or to be exposed in the api)
+(these formatters can be more easily tested and simplify both functions)
+(they should all simply return a string that complies to the formatting specification of their coresponding print function)
+  - formatName() : string - format a string to conform to printName()
+  - formatPersonInfo() : string - format a string to conform to printPersonInfo()
+  - formatSSN() : string - format a string to conform to pringSSN()
+
 The client encourages us to consider carefully:
   * passing by reference
   * using const modifiers for our parameters

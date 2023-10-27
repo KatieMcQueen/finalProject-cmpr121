@@ -1,5 +1,10 @@
 #include<string>
 
+string formatName();
+string formatPersonInfo();
+string formatSSN();
+
+
 class PersonType
 {
   private:

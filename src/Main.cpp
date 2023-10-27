@@ -20,6 +20,16 @@ TEST_CASE("test constructor") //the string is the name of our test
   CHECK(Person.getLastName() == "");
 }
 
+TEST_CASE("test SSN")
+{
+  CHECK(formatSSN(123456789) == "123-45-6789");
+  CHECK(formatSSN(0) == "000-00-0000");
+  CHECK(formatSSN(987654321) == "987-65-4321");
+  CHECK(formatSSN(192837465) == "192-83-7465");
+  CHECK(formatSSN(-987654321) == "987-65-4321");
+  CHECK(formatSSN(987654321) == "987-65-4321");
+}
+
 TEST_CASE("test name change")
 {
   //every subcase runs this setup code first

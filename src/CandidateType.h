@@ -20,4 +20,5 @@ public:
 	void printCandidateTotalVotes();
 	std::string formatCandidateCampusVotes(int campusNum, int* votesPerCampus);
 	void printCandidateCampusVotes(int campusNum);
+	~CandidateType();
 };

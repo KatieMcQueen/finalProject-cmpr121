@@ -81,3 +81,9 @@ void CandidateType::printCandidateCampusVotes(int campusNum)
 	std::cout << formatName(getFirstName(), getLastName()) << std::endl;
 	std::cout << "    " << formatCandidateCampusVotes(campusNum, votesByCampus) << std::endl;
 }
+
+
+CandidateType::~CandidateType() 
+{
+
+}

@@ -1,8 +1,6 @@
 #include<string>
+#include<iostream>
 
-string formatName();
-string formatPersonInfo();
-string formatSSN();
 
 
 class PersonType
@@ -21,5 +19,8 @@ class PersonType
     void printName();
     void printPersonInfo();
     void printSSN();
+    std::string formatName(std::string firstName, std::string lastName);
+    std::string formatPersonInfo(int socialSecurityNumber, std::string firstName, std::string lastName);
+    std::string formatSSN(int SSN);
     ~PersonType();
 };

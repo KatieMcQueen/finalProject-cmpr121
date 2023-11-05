@@ -10,9 +10,9 @@ endif()
 
 #our main executable test runner section
 #adds the person type library as a target
-add_library(PersonType src/PersonType.cpp)
+add_library(PersonType src/PersonType.cpp "src/CandidateType.cpp")
 #add our main executable as a target
-add_executable(main src/Main.cpp)
+add_executable(main src/Main.cpp "src/CandidateType.cpp")
 #include this directory to the compiler. tells it where to search for includes
 #this saves us from `#include "../examples/doctest.h"`
 target_include_directories(main PRIVATE external)

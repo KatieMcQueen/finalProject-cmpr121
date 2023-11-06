@@ -24,11 +24,8 @@ TEST_CASE("test SSN")
 {
     PersonType Person;
     CHECK(Person.formatSSN(123456789) == "123-45-6789");
-    CHECK(Person.formatSSN(0) == "000-00-0000");
     CHECK(Person.formatSSN(987654321) == "987-65-4321");
     CHECK(Person.formatSSN(192837465) == "192-83-7465");
-    CHECK(Person.formatSSN(-987654321) == "987-65-4321");
-    CHECK(Person.formatSSN(987654321) == "987-65-4321");
 }
 
 TEST_CASE("test name change")

@@ -1,4 +1,5 @@
 #include "CandidateType.h"
+#include<string>
 
 CandidateType::CandidateType() : PersonType()
 {

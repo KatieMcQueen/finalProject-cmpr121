@@ -1,12 +1,17 @@
 #include "PersonType.h"
+#include<string>
 
 const int NUM_OF_CAMPUSES = 4;
 
-class CandidateType : public PersonType {
+class CandidateType : public PersonType 
+{
 private:
 	int totalVotes;
 	int votesByCampus[NUM_OF_CAMPUSES];
 
+	std::string formatCandidateInfo(int socialSecurityNumber, std::string firstName, std::string lastName);
+	std::string formatCandidateTotalVotes(int tVotes);
+	std::string formatCandidateCampusVotes(int campusNum, int* votesPerCampus);
 
 public:
 	CandidateType();
@@ -14,11 +19,8 @@ public:
 	void updateVotesByCampus(int campusNum, int votes);
 	int getTotalVotes() const;
 	int getVotesByCampus(int campusNum) const;
-	std::string formatCandidateInfo(int socialSecurityNumber, std::string firstName, std::string lastName);
 	void printCandidateInfo();
-	std::string formatCandidateTotalVotes(int tVotes);
 	void printCandidateTotalVotes();
-	std::string formatCandidateCampusVotes(int campusNum, int* votesPerCampus);
 	void printCandidateCampusVotes(int campusNum);
 	~CandidateType();
 };

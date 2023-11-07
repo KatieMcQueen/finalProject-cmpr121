@@ -9,6 +9,9 @@ class PersonType
     std::string fName;
     std::string lName;
     int SSN;
+    std::string formatName(std::string firstName, std::string lastName);
+    std::string formatPersonInfo(int socialSecurityNumber, std::string firstName, std::string lastName);
+    std::string formatSSN(int SSN);
   public:
     PersonType();
     PersonType(std::string firstName, std::string lastName, int SSN);
@@ -19,8 +22,5 @@ class PersonType
     void printName();
     void printPersonInfo();
     void printSSN();
-    std::string formatName(std::string firstName, std::string lastName);
-    std::string formatPersonInfo(int socialSecurityNumber, std::string firstName, std::string lastName);
-    std::string formatSSN(int SSN);
     ~PersonType();
 };

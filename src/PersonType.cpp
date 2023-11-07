@@ -48,17 +48,7 @@ std::string PersonType::formatSSN(int socialSecurityNumber) {
     
     std::string output;
 
-    output += strSSN[0];
-    output += strSSN[1];
-    output += strSSN[2];
-    output += "-";
-    output += strSSN[3];
-    output += strSSN[4];
-    output += "-";
-    output += strSSN[5];
-    output += strSSN[6];
-    output += strSSN[7];
-    output += strSSN[8];
+    output = strSSN.substr(0, 3) + "-" + strSSN.substr(3, 2) + "-" + strSSN.substr(5, 4);
 
     return output;
 }

@@ -45,23 +45,13 @@ void PersonType::printSSN()
 
 std::string PersonType::formatSSN(int socialSecurityNumber) {
     std::string strSSN = std::to_string(socialSecurityNumber);
-    
-    std::string output;
 
-    output = strSSN.substr(0, 3) + "-" + strSSN.substr(3, 2) + "-" + strSSN.substr(5, 4);
-
-    return output;
+    return strSSN.substr(0, 3) + "-" + strSSN.substr(3, 2) + "-" + strSSN.substr(5, 4);
 }
 
 std::string PersonType::formatName(std::string firstName, std::string lastName)
 {
-    std::string output;
-
-    output += firstName;
-    output += ", ";
-    output += lastName;
-
-    return output;
+    return firstName + ", " + lastName;
 }
 
 std::string PersonType::formatPersonInfo(int socialSecurityNumber, std::string firstName, std::string lastName)

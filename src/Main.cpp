@@ -84,3 +84,17 @@ TEST_CASE("test name change")
     CHECK(Person.getSSN() == SSN);
   }
 }
+
+TEST_CASE("Format name")
+{
+    PersonType Person;
+    Person.setPerfonInfo("John", "Doe", 123456789);
+    CHECK(Person.formatName(Person.getFirstName(), Person.getLastName()) == "Doe, John");
+}
+
+TEST_CASE("Format person info")
+{
+    PersonType Person;
+    Person.setPerfonInfo("John", "Doe", 123456789);
+    CHECK(Person.formatPersonInfo(Person.getSSN(), Person.getFirstName(), Person.getLastName()) == "123-45-6789 Doe, John");
+}

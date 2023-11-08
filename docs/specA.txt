@@ -21,9 +21,6 @@ some examples:
   a private function that takes a string variable called before and returns a string variable called reverse:
     - reverse(before : string) : string
 
-NUM_OF_CAMPUSES
-  a global constant to store the number of participating campuses
-
 PersonType:
   member variables:
     - fName : string - a person's first name
@@ -64,32 +61,6 @@ PersonType:
     (void is assumed)
 
     + ~PersonType() - destructor. Left empty
-
-CandidateType:
-  inherits from PersonType
-  member variables:
-    - totalVote : int - total number of votes
-    - campusVotes : int[NUM_OF_CAMPUSES] - an array of votes by campus
-  member functions:
-    + CandidateType() : CandidateType - default constructor, initialize all votest to 0
-
-    + updateVotesByCampus(campusNumber : int, numVotes : int) : void - updates the number of votes to the selected campus to the number provided
-
-    + getTotalVotes() : const int - returns total number of votes
-
-    + getVotesByCampus(campusNumber : int) : const int - returns the number of votes for a particular campus
-
-    + printCandidateInfo() : void - prints the candidate info
-    (formated as "###-##-####-lName, fName")
-
-    + printCandidateTotalVotes() : void - prints the total number of votes
-    (formatted as "Lastname, Firstname \n\t" "Total Votes ( all campuses): ##")
-    (in other words, it has a linebreak followed by a tab)
-
-    + printCandidateCampusVotes(campusNumber : int) : void - prints the candidates votes for the specified campus
-    (formated as "Lastname, Firstname \n\t" "Campus # total vote: ##)
-
-    + ~CandidateType() - default destructor
 
 Specification extension:
 (helper functions not needed by the client or to be exposed in the api)

@@ -27,6 +27,12 @@ PersonType:
     - lName : string - a person's last name
     - SSN : int - a person's social security number
   member functions:
+    - formatName(firstName : string, lastName : string) - returns a single "lastName, firstName" format string.
+
+    - formatPersonInfo(socialSecurityNumber : int, firstName : string, lastName : string) - returns the information of a person, including their name and SSN, in a single string.
+
+    - formatSSN(SSN : int) - returns the SSN as an ###-##-#### string.
+
     + PersonType() : PersonType - default constructor. Sets SSN to 0.
 
     + PersonType(firstName : string, lastName : string, socialSecurityNumber : int) : PersonType - initializes a person with the given values

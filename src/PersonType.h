@@ -9,10 +9,10 @@ class PersonType
     std::string fName;
     std::string lName;
     int SSN;
+  public:
     std::string formatName(std::string firstName, std::string lastName);
     std::string formatPersonInfo(int socialSecurityNumber, std::string firstName, std::string lastName);
     std::string formatSSN(int SSN);
-  public:
     PersonType();
     PersonType(std::string firstName, std::string lastName, int SSN);
     void setPerfonInfo(std::string fName, std::string lName, int SSN);

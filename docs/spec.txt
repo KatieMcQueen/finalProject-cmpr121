@@ -1,4 +1,4 @@
-Specification for part A:
+Specification for part B:
   Implement a PersonType class. Use split implementation with a header and and implementation file.
   The file extension of the first must be .h, the extension of the second must be .cpp.
 
@@ -30,11 +30,11 @@ PersonType:
     - lName : string - a person's last name
     - SSN : int - a person's social security number
   member functions:
-    - formatName(firstName : string, lastName : string) - returns a single "lastName, firstName" format string.
+    - formatName(firstName : string, lastName : string) const : string - returns a single "lastName, firstName" format string.
 
-    - formatPersonInfo(socialSecurityNumber : int, firstName : string, lastName : string) - returns the information of a person, including their name and SSN, in a single string.
+    - formatPersonInfo(socialSecurityNumber : int, firstName : string, lastName : string) const : string - returns the information of a person, including their name and SSN, in a single string.
 
-    - formatSSN(SSN : int) - returns the SSN as an ###-##-#### string.
+    - formatSSN(SSN : int) const : string - returns the SSN as an ###-##-#### string.
 
     + PersonType() : PersonType - default constructor. Sets SSN to 0.
 
@@ -44,11 +44,11 @@ PersonType:
     (perfon is likely a typo, use the (likely) incorrect name from the specification unless and until it's fixed)
     (the specification doesn't explicitly call for a return type. I've assumed void, but bool is a possible alternative)
 
-    + getFirstName() : string - return the person's first name
+    + getFirstName() const : string - return the person's first name
 
-    + getLastName() : string - return the person's last name
+    + getLastName() const : string - return the person's last name
 
-    + getSSN() : int - returns the person's social security number
+    + getSSN() const : int - returns the person's social security number
 
     + printName() : void - print the person's first and last name
     (formatted as "lName, fName)

@@ -18,7 +18,7 @@ class PersonType
     void setPerfonInfo(std::string fName, std::string lName, int SSN);
     std::string getFirstName();
     std::string getLastName();
-    int getSSN();
+    int getSSN() const;
     void printName();
     void printPersonInfo();
     void printSSN();

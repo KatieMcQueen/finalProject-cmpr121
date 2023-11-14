@@ -75,9 +75,9 @@ CandidateType:
 
     + updateVotesByCampus(campusNumber : int, numVotes : int) : void - updates the number of votes to the selected campus to the number provided
 
-    + getTotalVotes() : const int - returns total number of votes
+    + getTotalVotes() const : int - returns total number of votes
 
-    + getVotesByCampus(campusNumber : int) : const int - returns the number of votes for a particular campus
+    + getVotesByCampus(campusNumber : int) const : int - returns the number of votes for a particular campus
 
     + printCandidateInfo() : void - prints the candidate info
     (formated as "###-##-####-lName, fName")

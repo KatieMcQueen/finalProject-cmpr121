@@ -19,12 +19,12 @@ void PersonType::setPerfonInfo(std::string firstName, std::string lastName, int 
   SSN = socialSecurityNumber;
 }
 
-std::string PersonType::getFirstName()
+std::string PersonType::getFirstName() const
 {
   return fName;
 }
 
-std::string PersonType::getLastName()
+std::string PersonType::getLastName() const
 {
   return lName;
 }

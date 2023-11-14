@@ -32,7 +32,7 @@ int CandidateType::getVotesByCampus(int campusNum) const
 	return votesByCampus[campusNum];
 }
 
-std::string CandidateType::formatCandidateInfo(int socialSecurityNumber, std::string firstName, std::string lastName)
+std::string CandidateType::formatCandidateInfo(int socialSecurityNumber, std::string firstName, std::string lastName) const
 {
 	std::string output;
 
@@ -48,7 +48,7 @@ void CandidateType::printCandidateInfo()
 	std::cout << formatCandidateInfo(getSSN(), getFirstName(), getLastName()) << std::endl;
 }
 
-std::string CandidateType::formatCandidateTotalVotes(int tVotes)
+std::string CandidateType::formatCandidateTotalVotes(int tVotes) const
 {
 	std::string output;
 
@@ -65,7 +65,7 @@ void CandidateType::printCandidateTotalVotes()
 	std::cout << "    " << formatCandidateTotalVotes(totalVotes) << std::endl;
 }
 
-std::string CandidateType::formatCandidateCampusVotes(int campusNum, int* votesPerCampus)
+std::string CandidateType::formatCandidateCampusVotes(int campusNum, int* votesPerCampus) const
 {
 	std::string output;
 

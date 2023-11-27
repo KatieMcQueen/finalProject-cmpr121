@@ -24,7 +24,7 @@ void CandidateList::addCandidate(CandidateType newCandidate)
 	count++;
 }
 
-CandidateType CandidateList::searchCandidate(int ssn)
+CandidateType CandidateList::searchCandidate(int ssn) const
 {
 	Node* checkNode = first;
 
@@ -37,7 +37,7 @@ CandidateType CandidateList::searchCandidate(int ssn)
 		return checkNode->getCandidate();
 }
 
-CandidateType CandidateList::getWinner()
+CandidateType CandidateList::getWinner() const
 {
 	CandidateType winner = first->getCandidate();
 	
@@ -48,7 +48,7 @@ CandidateType CandidateList::getWinner()
 	return winner;
 }
 
-void CandidateList::printCandidateName(int ssn)
+void CandidateList::printCandidateName(int ssn) const
 {
 	Node* checkNode = first;
 

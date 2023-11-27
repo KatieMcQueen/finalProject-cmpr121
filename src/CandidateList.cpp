@@ -21,6 +21,7 @@ void CandidateList::addCandidate(CandidateType newCandidate)
 		last->setLink(newNode);
 		last = newNode;
 	}
+	count++;
 }
 
 CandidateType CandidateList::searchCandidate(int ssn)

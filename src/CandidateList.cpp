@@ -58,3 +58,67 @@ void CandidateList::printCandidateName(int ssn) const
 	if (checkNode != nullptr)
 		checkNode->getCandidate().printName();
 }
+
+void CandidateList::printAllCandidates() const
+{
+	if (count == 0) {
+		std::cout << "=> List is empty." << std::endl;
+	}
+	else {
+		Node* currentNode = first;
+		while (currentNode != last) { //might not print last
+			currentNode->getCandidate().printCandidateInfo();
+			currentNode = currentNode->getLink();
+		}
+		
+	}
+}
+
+void CandidateList::printCandidateCampusVotes(int ssn, int division) const
+{
+	if (count == 0) {
+		std::cout << "=> List is empty." << std::endl;
+	}
+	else {
+		Node* currentNode = first;
+		while (currentNode->getCandidate().getSSN() != ssn) { //might print 1 before the found person, can add 1 then
+			currentNode = currentNode->getLink();
+		}
+		if (currentNode->getCandidate().getSSN() == ssn) {
+			std::cout << currentNode->getCandidate().printCandidateCampusVotes(division) << std::endl << std::endl;
+		}
+	}
+}
+
+void CandidateList::printCandidateTotalVotes(int ssn) const
+{
+
+	if (count == 0) {
+		std::cout << "=> List is empty." << std::endl;
+	}
+	else {
+		Node* currentNode = first;
+		while (currentNode->getCandidate().getSSN() != ssn) {//might print 1 before the found person, can add 1 then and just solve it real quick
+			currentNode = currentNode->getLink();
+		}
+		if (currentNode->getCandidate().getSSN() == ssn) {
+			std::cout << currentNode->getCandidate().printCandidateTotalVotes() << std::endl << std::endl;
+		}
+	}
+}
+
+void CandidateList::destroyList()
+{
+	Node* currentNode = first;
+	Node* nextNode = currentNode->getLink();
+
+	for (int i = 1; i < count; ++i) {
+		delete currentNode;
+		currentNode = currentNode->getLink();
+	}
+}
+
+CandidateList::~CandidateList()
+{
+	destroyList();
+}

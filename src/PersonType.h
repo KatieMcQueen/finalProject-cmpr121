@@ -1,7 +1,8 @@
 #include<string>
 #include<iostream>
 
-
+#ifndef PERSON_TYPE_H
+#define PERSON_TYPE_H
 
 class PersonType
 {
@@ -24,3 +25,5 @@ class PersonType
     void printSSN();
     ~PersonType();
 };
+
+#endif

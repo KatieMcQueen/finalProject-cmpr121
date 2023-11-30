@@ -1,100 +1,123 @@
-//tells the testing library to implement a main function to serve as a test driver
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-//include the testing library header
-#include"doctest.h"
-#include"PersonType.h"
-#include<string>
+/*
+     NAME HEADER  
+*/
 
+#include "InputHandler.h"
 using namespace std;
 
-//one of our tests. checks that the default constructor works. also relies on the get functions behaving
-TEST_CASE("test constructor") //the string is the name of our test
+void displayMenu();
+void processChoice(CandidateList& candidateList);
+
+int main()
 {
-  PersonType Person;
-  //this is supposed to catch if an exception is thrown, 
-  //but it just crashes anyway. oh well
-  //
-  //CHECK_THROWS(Person.fName); //check that this throws an exception
-  CHECK(Person.getSSN() == 0); //check that our ssn is initialized to zero
-  CHECK(Person.getFirstName() == "");
-  CHECK(Person.getLastName() == "");
+	//Create the list
+	CandidateList candidateList;
+
+	//fill the list with candidates data
+	readCandidateData(candidateList);
+
+	//Make a choice
+	displayMenu();
+
+	//Process the choice
+	processChoice(candidateList);
+
+	cout  <<  endl;
+	system("Pause");
+	return 0;
 }
 
-TEST_CASE("test SSN")
+void displayMenu()
 {
-    PersonType Person;
-    CHECK(Person.formatSSN(123456789) == "123-45-6789");
-    CHECK(Person.formatSSN(987654321) == "987-65-4321");
-    CHECK(Person.formatSSN(192837465) == "192-83-7465");
+	cout << "\n*** MAIN MENU ***\n";
+	cout << "\nSelect one of the following:\n\n";
+	cout << "    1: Print all candidates" << endl;
+	cout << "    2: Print a candidate's campus votes" << endl;
+	cout << "    3: Print a candidate's total votes" << endl;
+	cout << "    4: Print winner" << endl;
+	cout << "    5: Print final results" << endl;
+	cout << "    6: To exit" << endl;
 }
 
-TEST_CASE("test name change")
+void processChoice(CandidateList& candidateList)
 {
-  //every subcase runs this setup code first
-  PersonType Person;
-  //REQUIRE(Person.getFirstName == "");//require bails out of the test if it fails
-  //REQUIRE(Person.getLastName == "");
-  //REQUIRE(Person.getSSN == 0);
-  SUBCASE("Change details")
-  {
-    string firstName = "Katelyn";
-    string lastName = "McQueen";
-    int SSN = 123456789;
-    Person.setPerfonInfo(firstName, lastName, SSN);
-    CHECK(Person.getFirstName() == firstName);
-    CHECK(Person.getLastName() == lastName);
-    CHECK(Person.getSSN() == SSN);
-  }
-  SUBCASE("Change details")
-  {
-    string firstName = "Jay";
-    string lastName = "Reyes";
-    int SSN = 192837465;
-    Person.setPerfonInfo(firstName, lastName, SSN);
-    CHECK(Person.getFirstName() == firstName);
-    CHECK(Person.getLastName() == lastName);
-    CHECK(Person.getSSN() == SSN);
-  }
-  SUBCASE("Change details")
-  {
-    string firstName = "Dylan";
-    string lastName = "Berry";
-    int SSN = 987654321;
-    Person.setPerfonInfo(firstName, lastName, SSN);
-    CHECK(Person.getFirstName() == firstName);
-    CHECK(Person.getLastName() == lastName);
-    CHECK(Person.getSSN() == SSN);
-  }
-  SUBCASE("Change details twice")
-  {
-    string firstName = "Dylan";
-    string lastName = "Berry";
-    int SSN = 987654321;
-    Person.setPerfonInfo(firstName, lastName, SSN);
-    CHECK(Person.getFirstName() == firstName);
-    CHECK(Person.getLastName() == lastName);
-    CHECK(Person.getSSN() == SSN);
+	int choice;
+	cout << "\nEnter your choice: ";
+	cin >> choice;
 
-    firstName = "Katelyn";
-    lastName = "McQueen";
-    SSN = 987654321;
-    Person.setPerfonInfo(firstName, lastName, SSN);
-    CHECK(Person.getFirstName() == firstName);
-    CHECK(Person.getLastName() == lastName);
-    CHECK(Person.getSSN() == SSN);
-  }
-}
+	while (choice != 6)
+	{
+		string fName, lName;
+		int campus = 0,
+			ssn = 0;
 
-TEST_CASE("Format name")
-{
-    PersonType Person;
-    Person.setPerfonInfo("John", "Doe", 123456789);
-    CHECK(Person.formatName(Person.getFirstName(), Person.getLastName()) == "Doe, John");
-}
+		switch (choice)
+		{
+			// Print all candidates
+		case 1:
+			cout << endl;
+			candidateList.printAllCandidates();
 
-TEST_CASE("Format person info")
-{
-    PersonType Person;
-    Person.setPerfonInfo("John", "Doe", 123456789);
-    CHECK(Person.formatPersonInfo(Person.getSSN(), Person.getFirstName(), Person.getLastName()) == "123-45-6789 Doe, John");
+			cout << endl;
+			break;
+
+			// Print a candidates's campus votes
+		case 2:
+			cout << "\nEnter candidate's social security number (no dashes): ";
+			cin >> ssn;
+			cout << endl;
+			candidateList.printCandidateName(ssn);
+			//cout << endl;
+			for (int i = 1; i <= NUM_OF_CAMPUSES; ++i)
+				candidateList.printCandidateCampusVotes(ssn, i);
+			cout << endl;
+			break;
+
+			// Print a candidate's total votes
+		case 3:
+			cout << "\nEnter candidate's social security number (no dashes): ";
+			cin >> ssn;
+			cout << endl;
+			candidateList.printCandidateName(ssn);
+			//cout << endl;
+			candidateList.printCandidateTotalVotes(ssn);
+			cout << endl << endl;
+			break;
+
+			// Print winner
+		case 4:
+			ssn = candidateList.getWinner().getSSN();
+			if (ssn != 0)
+			{
+				cout << "\nElection winner: ";
+				candidateList.printCandidateName(ssn);
+				//cout << endl;
+				candidateList.printCandidateTotalVotes(ssn);
+			}
+			else
+			{
+				cout << "\n    => There are no candidates." ;
+			}
+			cout << endl << endl;
+			break;
+
+		case 5: // prints totall votes and name of each candidate
+			cout << endl;
+			cout << "FINAL RESULTS" << endl;
+			cout << "-------------" << endl;
+		candidateList.printAllCandidates();
+		cout << endl;
+		break;
+
+		default:
+			cout << "\n    => Sorry. That is not a selection. \n" ;
+			cout << endl;
+		}
+		cout << endl;
+		displayMenu();
+		cout << "\nEnter your choice: ";
+		cin >> choice;
+	}
+	if (choice == 6)
+		cout << "\nThank you and have a great day!" << endl;
 }

@@ -1,3 +1,7 @@
+#include"CandidateType.h"
+
+#ifndef NODE_H
+#define NODE_H
 
 class Node
 {
@@ -15,3 +19,4 @@ private:
     Node* link;		//pointer that points to next node
 };
 
+#endif

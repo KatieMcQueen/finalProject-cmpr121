@@ -1,6 +1,9 @@
 #include "PersonType.h"
 #include<string>
 
+#ifndef CANDIDATE_TYPE_H
+#define CANDIDATE_TYPE_H
+
 const int NUM_OF_CAMPUSES = 4;
 
 class CandidateType : public PersonType 
@@ -24,3 +27,5 @@ public:
 	void printCandidateCampusVotes(int campusNum);
 	~CandidateType();
 };
+
+#endif

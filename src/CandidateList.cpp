@@ -31,9 +31,7 @@ CandidateType CandidateList::searchCandidate(int ssn) const
 	while ( ssn != checkNode->getCandidate().getSSN() && checkNode != nullptr )
 		checkNode = checkNode->getLink();
 	
-	if (checkNode == nullptr)
-		;//not found
-	else
+	if (checkNode != nullptr)
 		return checkNode->getCandidate();
 }
 
@@ -85,7 +83,8 @@ void CandidateList::printCandidateCampusVotes(int ssn, int division) const
 			currentNode = currentNode->getLink();
 		}
 		if (currentNode->getCandidate().getSSN() == ssn) {
-			std::cout << currentNode->getCandidate().printCandidateCampusVotes(division) << std::endl << std::endl;
+			currentNode->getCandidate().printCandidateCampusVotes(division);
+      std::cout << std::endl << std::endl;
 		}
 	}
 }
@@ -102,7 +101,8 @@ void CandidateList::printCandidateTotalVotes(int ssn) const
 			currentNode = currentNode->getLink();
 		}
 		if (currentNode->getCandidate().getSSN() == ssn) {
-			std::cout << currentNode->getCandidate().printCandidateTotalVotes() << std::endl << std::endl;
+      currentNode->getCandidate().printCandidateTotalVotes();
+			std::cout << std::endl << std::endl;
 		}
 	}
 }

@@ -38,7 +38,7 @@ void readCandidateData(CandidateList& candidateList)
   std::ifstream infile;
 
   //this is hacky and temporary please fix
-	infile.open("candidate_data.txt");
+	infile.open("data/Candidate_data.txt");
 
 	if (!infile)
 	{

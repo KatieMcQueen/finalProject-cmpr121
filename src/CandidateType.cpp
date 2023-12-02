@@ -3,15 +3,13 @@
 
 CandidateType::CandidateType() : PersonType()
 {
-	totalVotes = 0;
 	for (int i = 0; i < NUM_OF_CAMPUSES; ++i) {
 		votesByCampus[i] = 0;
 	}
 }
 
-CandidateType::CandidateType(std::string firstName, std::string lastName, int socialSecurityNumber, int allVotes, int* voteByCampusPointer) : PersonType(firstName, lastName, socialSecurityNumber) //ok this probably works but still check it out
+CandidateType::CandidateType(std::string firstName, std::string lastName, int socialSecurityNumber, int* voteByCampusPointer) : PersonType(firstName, lastName, socialSecurityNumber) //ok this probably works but still check it out
 {
-	totalVotes = allVotes;
 	for (int i = 0; i < NUM_OF_CAMPUSES; ++i) {
 		votesByCampus[i] = *(voteByCampusPointer + i);
 	}
@@ -24,7 +22,13 @@ void CandidateType::updateVotesByCampus(int campusNum, int votes)
 
 int CandidateType::getTotalVotes() const
 {
-	return votesByCampus[0] + votesByCampus[1] + votesByCampus[2] + votesByCampus[3];
+	int total = 0;
+
+	for (int v : votesByCampus) 
+		total += v;
+
+
+	return total;
 }
 
 int CandidateType::getVotesByCampus(int campusNum) const

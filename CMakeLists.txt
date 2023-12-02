@@ -43,3 +43,5 @@ target_link_libraries(test PRIVATE PersonType)
 target_link_libraries(test PRIVATE CandidateType)
 target_link_libraries(test PRIVATE CandidateList)
 
+#includes the candidate_data.txt in the build
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/data/Candidate_data.txt Candidate_data.txt COPYONLY)

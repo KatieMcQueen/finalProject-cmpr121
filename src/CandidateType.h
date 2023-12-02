@@ -9,7 +9,6 @@ const int NUM_OF_CAMPUSES = 4;
 class CandidateType : public PersonType 
 {
 private:
-	int totalVotes;
 	int votesByCampus[NUM_OF_CAMPUSES];
 
 	std::string formatCandidateInfo() const;
@@ -18,7 +17,7 @@ private:
 
 public:
 	CandidateType();
-	CandidateType(std::string firstName, std::string lastName, int socialSecurityNumber, int allVotes, int* voteByCampusPointer);
+	CandidateType(std::string firstName, std::string lastName, int socialSecurityNumber, int* voteByCampusPointer);
 	void updateVotesByCampus(int campusNum, int votes);
 	int getTotalVotes() const;
 	int getVotesByCampus(int campusNum) const;

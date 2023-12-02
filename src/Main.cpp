@@ -102,11 +102,18 @@ void processChoice(CandidateList& candidateList)
 			break;
 
 		case 5: // prints totall votes and name of each candidate
+		{
 			cout << endl;
 			cout << "FINAL RESULTS" << endl;
 			cout << "-------------" << endl;
-		candidateList.printAllCandidates();
-		cout << endl;
+			int ssn = candidateList.getWinner().getSSN();
+			cout << "\nElection winner: ";
+			candidateList.printCandidateName(ssn);
+			for (int i = 1; i <= NUM_OF_CAMPUSES; ++i)
+				candidateList.printCandidateCampusVotes(ssn, i);
+			candidateList.printCandidateTotalVotes(ssn);
+			cout << endl;
+		}
 		break;
 
 		default:

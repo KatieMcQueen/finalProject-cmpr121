@@ -39,22 +39,20 @@ CandidateType CandidateList::getWinner() const
 {
 	CandidateType winner = first->getCandidate();
 	
-	for (Node* checkNode = first; checkNode != nullptr; checkNode = checkNode->getLink())
-		if (checkNode->getCandidate().getTotalVotes() > winner.getTotalVotes()) 
-			winner = checkNode->getCandidate(); //this is abhorrent!
+	for (Node* checkNode = first; checkNode != nullptr; checkNode = checkNode->getLink()) //Scan the whole linklist
+	{
+		if (checkNode->getCandidate().getTotalVotes() > winner.getTotalVotes())
+		{
+			winner = checkNode->getCandidate(); //Finds the highest number.
+		}
+	}
 
 	return winner;
 }
 
 void CandidateList::printCandidateName(int ssn) const
 {
-	Node* checkNode = first;
-
-	while (ssn != checkNode->getCandidate().getSSN() && checkNode != nullptr)
-		checkNode = checkNode->getLink();
-
-	if (checkNode != nullptr)
-		checkNode->getCandidate().printName();
+	searchCandidate(ssn).printName();
 }
 
 void CandidateList::printAllCandidates() const
@@ -78,14 +76,16 @@ void CandidateList::printCandidateCampusVotes(int ssn, int division) const
 		std::cout << "=> List is empty." << std::endl;
 	}
 	else {
-		Node* currentNode = first;
+		searchCandidate(ssn).printCandidateCampusVotes(division);
+		std::cout << std::endl << std::endl;
+		/*Node* currentNode = first;
 		while (currentNode->getCandidate().getSSN() != ssn) { //might print 1 before the found person, can add 1 then
 			currentNode = currentNode->getLink();
 		}
 		if (currentNode->getCandidate().getSSN() == ssn) {
 			currentNode->getCandidate().printCandidateCampusVotes(division);
       std::cout << std::endl << std::endl;
-		}
+		}*/
 	}
 }
 
@@ -96,6 +96,9 @@ void CandidateList::printCandidateTotalVotes(int ssn) const
 		std::cout << "=> List is empty." << std::endl;
 	}
 	else {
+		searchCandidate(ssn).printCandidateTotalVotes();
+		std::cout << std::endl << std::endl;
+		/*
 		Node* currentNode = first;
 		while (currentNode->getCandidate().getSSN() != ssn) {//might print 1 before the found person, can add 1 then and just solve it real quick
 			currentNode = currentNode->getLink();
@@ -104,6 +107,7 @@ void CandidateList::printCandidateTotalVotes(int ssn) const
       currentNode->getCandidate().printCandidateTotalVotes();
 			std::cout << std::endl << std::endl;
 		}
+		*/
 	}
 }
 
@@ -116,6 +120,7 @@ void CandidateList::destroyList()
 		delete currentNode;
 		currentNode = currentNode->getLink();
 	}
+	//very elegant, i like this a lot -j
 }
 
 CandidateList::~CandidateList()

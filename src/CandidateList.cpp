@@ -154,7 +154,6 @@ void CandidateList::printCandidateTotalVotes(int ssn) const
 void CandidateList::destroyList()
 {
 	Node* currentNode = first;
-	Node* nextNode = currentNode->getLink();
 
 	for (int i = 1; i < count; ++i) {
 		delete currentNode;

@@ -105,9 +105,9 @@ void processChoice(CandidateList& candidateList)
 			cout << endl;
 			cout << "FINAL RESULTS" << endl;
 			cout << "-------------" << endl;
-		candidateList.printAllCandidates();
-		cout << endl;
-		break;
+		  candidateList.printAllCandidates();
+		  cout << endl;
+		  break;
 
 		default:
 			cout << "\n    => Sorry. That is not a selection. \n" ;

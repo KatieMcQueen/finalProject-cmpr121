@@ -57,7 +57,7 @@ std::string CandidateType::formatCandidateTotalVotes() const
 	std::string output;
 
 	output += "Total votes ( all campuses ) : ";
-	output += std::to_string(totalVotes);
+	output += std::to_string(getTotalVotes());
 	
 	
 	return output;

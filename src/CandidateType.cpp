@@ -32,28 +32,28 @@ int CandidateType::getVotesByCampus(int campusNum) const
 	return votesByCampus[campusNum];
 }
 
-std::string CandidateType::formatCandidateInfo(int socialSecurityNumber, std::string firstName, std::string lastName) const
+std::string CandidateType::formatCandidateInfo() const
 {
 	std::string output;
 
-	output += formatSSN(socialSecurityNumber);
+	output += formatSSN();
 	output += " - ";
-	output += formatName(firstName, lastName);
+	output += formatName();
 
 	return output;
 }
 
 void CandidateType::printCandidateInfo()
 {
-	std::cout << formatCandidateInfo(getSSN(), getFirstName(), getLastName()) << std::endl;
+	std::cout << formatCandidateInfo() << std::endl;
 }
 
-std::string CandidateType::formatCandidateTotalVotes(int tVotes) const
+std::string CandidateType::formatCandidateTotalVotes() const
 {
 	std::string output;
 
 	output += "Total votes ( all campuses ) : ";
-	output += std::to_string(tVotes);
+	output += std::to_string(totalVotes);
 	
 	
 	return output;
@@ -61,26 +61,26 @@ std::string CandidateType::formatCandidateTotalVotes(int tVotes) const
 
 void CandidateType::printCandidateTotalVotes()
 {
-	std::cout << formatName(getFirstName(), getLastName()) << std::endl;
-	std::cout << "    " << formatCandidateTotalVotes(totalVotes) << std::endl;
+	std::cout << formatName() << std::endl;
+	std::cout << "    " << formatCandidateTotalVotes() << std::endl;
 }
 
-std::string CandidateType::formatCandidateCampusVotes(int campusNum, int* votesPerCampus) const
+std::string CandidateType::formatCandidateCampusVotes(int campusNum) const
 {
 	std::string output;
 
 	output += "Campus ";
 	output += std::to_string(campusNum);
 	output += " total votes: ";
-	output += std::to_string(*(votesPerCampus + campusNum - 1));
+	output += std::to_string(*(votesByCampus + campusNum - 1));
 
 	return output;
 }
 
 void CandidateType::printCandidateCampusVotes(int campusNum)
 {
-	std::cout << formatName(getFirstName(), getLastName()) << std::endl;
-	std::cout << "    " << formatCandidateCampusVotes(campusNum, votesByCampus) << std::endl;
+	std::cout << formatName() << std::endl;
+	std::cout << "    " << formatCandidateCampusVotes(campusNum) << std::endl;
 }
 
 

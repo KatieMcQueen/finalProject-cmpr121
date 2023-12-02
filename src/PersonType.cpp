@@ -36,22 +36,22 @@ int PersonType::getSSN() const
 
 void PersonType::printName()
 {
-    std::cout << formatName(fName, lName) << std::endl;
+    std::cout << formatName() << std::endl;
 }
 
 void PersonType::printPersonInfo()
 {
-    std::cout << formatPersonInfo(SSN, fName, lName) << std::endl;
+    std::cout << formatPersonInfo() << std::endl;
 }
 
 void PersonType::printSSN()
 {
-    std::cout << formatSSN(SSN) << std::endl;
+    std::cout << formatSSN() << std::endl;
 }
 
-std::string PersonType::formatSSN(int socialSecurityNumber) const
+std::string PersonType::formatSSN() const
 {
-    std::string strSSN = std::to_string(socialSecurityNumber);
+    std::string strSSN = std::to_string(SSN);
 
     std::string output;
 
@@ -62,16 +62,16 @@ std::string PersonType::formatSSN(int socialSecurityNumber) const
     return output;
 }
 
-std::string PersonType::formatName(std::string firstName, std::string lastName) const
+std::string PersonType::formatName() const
 {
-    return lastName + ", " + firstName;
+    return lName + ", " + fName;
 }
 
-std::string PersonType::formatPersonInfo(int socialSecurityNumber, std::string firstName, std::string lastName) const
+std::string PersonType::formatPersonInfo() const
 {
     std::string output;
 
-    output += formatSSN(SSN);
+    output += formatSSN();
     output += " ";
     output += lName;
     output += ", ";

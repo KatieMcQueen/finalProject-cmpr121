@@ -12,9 +12,9 @@ private:
 	int totalVotes;
 	int votesByCampus[NUM_OF_CAMPUSES];
 
-	std::string formatCandidateInfo(int socialSecurityNumber, std::string firstName, std::string lastName) const;
-	std::string formatCandidateTotalVotes(int tVotes) const;
-	std::string formatCandidateCampusVotes(int campusNum, int* votesPerCampus) const;
+	std::string formatCandidateInfo() const;
+	std::string formatCandidateTotalVotes() const;
+	std::string formatCandidateCampusVotes(int campusNum) const;
 
 public:
 	CandidateType();

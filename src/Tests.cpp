@@ -20,14 +20,6 @@ TEST_CASE("test constructor") //the string is the name of our test
   CHECK(Person.getLastName() == "");
 }
 
-TEST_CASE("test SSN")
-{
-    PersonType Person;
-    CHECK(Person.formatSSN(123456789) == "123-45-6789");
-    CHECK(Person.formatSSN(987654321) == "987-65-4321");
-    CHECK(Person.formatSSN(192837465) == "192-83-7465");
-}
-
 TEST_CASE("test name change")
 {
   //every subcase runs this setup code first
@@ -85,16 +77,3 @@ TEST_CASE("test name change")
   }
 }
 
-TEST_CASE("Format name")
-{
-    PersonType Person;
-    Person.setPerfonInfo("John", "Doe", 123456789);
-    CHECK(Person.formatName(Person.getFirstName(), Person.getLastName()) == "Doe, John");
-}
-
-TEST_CASE("Format person info")
-{
-    PersonType Person;
-    Person.setPerfonInfo("John", "Doe", 123456789);
-    CHECK(Person.formatPersonInfo(Person.getSSN(), Person.getFirstName(), Person.getLastName()) == "123-45-6789 Doe, John");
-}

@@ -37,8 +37,14 @@ void readCandidateData(CandidateList& candidateList)
 {
   std::ifstream infile;
 
+  std::string fileName;
+
+  std::cout << "Please enter the name of an input file: ";
+
+  std::getline(std::cin, fileName);
+
   //this is hacky and temporary please fix
-	infile.open("candidate_data.txt");
+	infile.open(fileName);
 
 	if (!infile)
 	{

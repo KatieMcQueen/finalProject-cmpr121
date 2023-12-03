@@ -28,20 +28,20 @@ bool CandidateList::searchCandidate(int ssn) const
 {
 	if (count == 0)
 	{
-		std::cout << "=> List is Empty";
+		std::cout << "=> List is Empty" << std::endl;
 		return 0;
 	}
 
 	Node* checkNode = first;
 
-	while ( ssn != checkNode->getCandidate().getSSN() && checkNode != nullptr )
+	while (checkNode != nullptr && ssn != checkNode->getCandidate().getSSN())
 		checkNode = checkNode->getLink();
 	
 	bool success = checkNode != nullptr;
 
 	if(!success)
 	{
-		std::cout << "=> SSN is not in the list";
+		std::cout << "=> SSN is not in the list" << std::endl;
 	}
 
 	return success; //Returns whether the iterator reached the end of the list.
@@ -66,18 +66,18 @@ void CandidateList::printCandidateName(int ssn) const
 {
 	if (count == 0)
 	{
-		std::cout << "=> List is Empty";
+		std::cout << "=> List is Empty" << std::endl;
 	}
 	else
 	{
 		Node* nodePtr = first;
 
-		while (nodePtr->getCandidate().getSSN() != ssn && nodePtr != nullptr)
+		while (nodePtr != nullptr && nodePtr->getCandidate().getSSN() != ssn)
 			nodePtr = nodePtr->getLink();
 
 		if (nodePtr == nullptr)
 		{
-			std::cout << "=> SSN is not in the list";
+			std::cout << "=> SSN is not in the list" << std::endl;
 		}
 		else
 		{
@@ -105,18 +105,18 @@ void CandidateList::printCandidateCampusVotes(int ssn, int division) const
 {
 	if (count == 0)
 	{
-		std::cout << "=> List is Empty";
+		std::cout << "=> List is Empty" << std::endl;
 	}
 	else
 	{
 		Node* currentNode = first;
 
-		while (currentNode->getCandidate().getSSN() != ssn && currentNode != nullptr)
+		while (currentNode != nullptr && currentNode->getCandidate().getSSN() != ssn)
 			currentNode = currentNode->getLink();
 
 		if (currentNode == nullptr)
 		{
-			std::cout << "=> SSN is not in the list";
+			std::cout << "=> SSN is not in the list" << std::endl;
 		}
 		else
 		{
@@ -130,18 +130,18 @@ void CandidateList::printCandidateTotalVotes(int ssn) const
 {
 	if (count == 0)
 	{
-		std::cout << "=> List is Empty";
+		std::cout << "=> List is Empty" << std::endl;
 	}
 	else
 	{
 		Node* currentNode = first;
 
-		while (currentNode->getCandidate().getSSN() != ssn && currentNode != nullptr)
+		while (currentNode != nullptr && currentNode->getCandidate().getSSN() != ssn)
 			currentNode = currentNode->getLink();
 
 		if (currentNode == nullptr)
 		{
-			std::cout << "=> SSN is not in the list";
+			std::cout << "=> SSN is not in the list" << std::endl;
 		}
 		else
 		{

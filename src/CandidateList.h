@@ -12,7 +12,7 @@ public: //Figure out what should be const laterrrrr.....
 	CandidateList();
 	void addCandidate(CandidateType newCandidate);
 	CandidateType getWinner() const;
-	CandidateType searchCandidate(int ssn) const;
+	bool searchCandidate(int ssn) const;
 	void printCandidateName(int ssn) const;
 	//Dylan starts here
 	void printAllCandidates() const;

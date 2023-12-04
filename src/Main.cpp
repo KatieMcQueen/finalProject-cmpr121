@@ -66,10 +66,12 @@ void processChoice(CandidateList& candidateList)
 			cout << "\nEnter candidate's social security number (no dashes): ";
 			cin >> ssn;
 			cout << endl;
-			candidateList.printCandidateName(ssn);
-			//cout << endl;
-			for (int i = 1; i <= NUM_OF_CAMPUSES; ++i)
-				candidateList.printCandidateCampusVotes(ssn, i);
+      if(candidateList.searchCandidate(ssn));
+      {
+        candidateList.printCandidateName(ssn);
+			  for (int i = 1; i <= NUM_OF_CAMPUSES; ++i)
+				  candidateList.printCandidateCampusVotes(ssn, i);
+      }
 			cout << endl;
 			break;
 
@@ -78,9 +80,11 @@ void processChoice(CandidateList& candidateList)
 			cout << "\nEnter candidate's social security number (no dashes): ";
 			cin >> ssn;
 			cout << endl;
-			candidateList.printCandidateName(ssn);
-			//cout << endl;
-			candidateList.printCandidateTotalVotes(ssn);
+      if(candidateList.searchCandidate(ssn));
+      {
+			  candidateList.printCandidateName(ssn);
+			  candidateList.printCandidateTotalVotes(ssn);
+      }
 			cout << endl << endl;
 			break;
 
@@ -105,12 +109,15 @@ void processChoice(CandidateList& candidateList)
 			cout << endl;
 			cout << "FINAL RESULTS" << endl;
 			cout << "-------------" << endl;
-			int ssn = candidateList.getWinner().getSSN();
-			cout << "\nElection winner: ";
-			candidateList.printCandidateName(ssn);
-			for (int i = 1; i <= NUM_OF_CAMPUSES; ++i)
-				candidateList.printCandidateCampusVotes(ssn, i);
-			candidateList.printCandidateTotalVotes(ssn);
+			ssn = candidateList.getWinner().getSSN();
+      if(ssn != 0)
+      {
+			  cout << "\nElection winner: ";
+			  candidateList.printCandidateName(ssn);
+			  for (int i = 1; i <= NUM_OF_CAMPUSES; ++i)
+				  candidateList.printCandidateCampusVotes(ssn, i);
+			  candidateList.printCandidateTotalVotes(ssn);
+      }
 			cout << endl;
 		  break;
 

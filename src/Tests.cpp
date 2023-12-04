@@ -3,6 +3,8 @@
 //include the testing library header
 #include"doctest.h"
 #include"PersonType.h"
+#include"CandidateType.h"
+#include"CandidateList.h"
 #include<string>
 
 using namespace std;
@@ -77,3 +79,30 @@ TEST_CASE("test name change")
   }
 }
 
+TEST_CASE("add votes")
+{
+  CandidateType katelyn;
+  katelyn.setPerfonInfo("Katie", "McQueen", 123456789);
+  CHECK(katelyn.getTotalVotes() == 0);
+  katelyn.updateVotesByCampus(0, 100);
+  katelyn.updateVotesByCampus(1, 100);
+  katelyn.updateVotesByCampus(2, 100);
+  katelyn.updateVotesByCampus(3, 100);
+  CHECK(katelyn.getTotalVotes() == 400);
+}
+
+TEST_CASE("search Candidate")
+{
+  CandidateType katelyn;
+  katelyn.setPerfonInfo("Katie", "McQueen", 123456789);
+  CandidateType dylan;
+  dylan.setPerfonInfo("Dylan", "Berry", 12);
+  CandidateList list;
+  list.addCandidate(katelyn);
+  list.addCandidate(dylan);
+  CHECK(!list.searchCandidate(0));
+  CHECK(list.searchCandidate(123456789));
+  CHECK(list.searchCandidate(12));
+  CHECK(!list.searchCandidate(13));
+  CHECK(!list.searchCandidate(15));
+} 

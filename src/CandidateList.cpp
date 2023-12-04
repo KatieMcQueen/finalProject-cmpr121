@@ -159,6 +159,8 @@ void CandidateList::destroyList()
 		delete currentNode;
 		currentNode = currentNode->getLink();
 	}
+
+	delete currentNode;
 	//very elegant, i like this a lot -j
 }
 
